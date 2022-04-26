@@ -49,8 +49,21 @@
     <main>
       <div class="resources__content">
         <h1>Recursos</h1>
-        <h1><?php echo "Hello World" ?></h1>
+        <div>
+        <?php
+            $path = "../upload";
+            $dh = opendir($path);
+            $i=1;
+            while (($file = readdir($dh)) !== false) {
+                if($file != "." && $file != ".." && $file != "index.php" && $file != ".htaccess" && $file != "error_log" && $file != "cgi-bin") {
+                    echo "<div style=\"margin-top: 0.8rem; border-radius: 0.8rem; background-color: #f2f6ff; padding: 0.8rem; box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);\"><a href='$path/$file' style=\"text-decoration: none; color: hsl(var(--hue-color), 69%, 61%); font-weight:600;\">$file</a></div>";
+                    $i++;
+                }
+            }
+            closedir($dh);
+        ?> 
       </div>
+        </div>
     </main>
     <script src="../js/main.js" defer></script>
   </body>
