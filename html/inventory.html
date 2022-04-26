@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <title>Inventario</title>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="../index.html" class="nav__logo">Logo</a>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list grid">
+            <li class="nav__item">
+              <a href="#" class="nav__link">
+                <i class="uil uil-cube nav__icon"></i> Inventario
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="resources.html" class="nav__link">
+                <i class="uil uil-file nav__icon"></i> Recursos
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="login.html" class="nav__link">
+                <i class="uil uil-user nav__icon"></i> ¿Eres administrativo?
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link"></a>
+            </li>
+          </ul>
+          <i class="uil uil-times nav__close" id="nav-close"></i>
+        </div>
+        <div class="nav__btns">
+          <i class="uil uil-moon change-theme" id="theme-button"></i>
+
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="uil uil-apps"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="inventory__content">
+        <h1>Inventario</h1>
+        <ul>
+          <li class="list active" data-filter="all">Todos</li>
+          <li class="list" data-filter="reactive">Reactivos</li>
+          <li class="list" data-filter="glass">Vidrio</li>
+          <li class="list" data-filter="material">Material</li>
+          <li class="list" data-filter="equipment">Equipo</li>
+        </ul>
+        <input
+          type="text"
+          id="inventory-search-bar"
+          class="inventory__content-search-bar"
+          placeholder="Busca algo del inventario..."
+          onkeyup="filterItems()"
+        />
+        <div id="inventory"></div>
+      </div>
+    </main>
+    <div id="item-detail-container"></div>
+    <script type="module">
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBvCZYhJ9w_MdbqVVYV-Kgzl17Un8PNhrk",
+        authDomain: "chemistry-web-35f4b.firebaseapp.com",
+        projectId: "chemistry-web-35f4b",
+        storageBucket: "chemistry-web-35f4b.appspot.com",
+        messagingSenderId: "550117698692",
+        appId: "1:550117698692:web:c9658110ba0474994166d1",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/inventory.js" defer></script>
+  </body>
+</html>
